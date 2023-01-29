@@ -31,5 +31,11 @@ urlpatterns = [
     path('delete-data/<int:pk>',views.delete_data,name='delete-data'),
     path('edit-data/<int:pk>', views.edit_data, name='edit-data'),
     path('update/',views.update,name='update'),
+    path('demo/',views.demo,name='demo'),
+    path('add_order/',views.add_order,name='add_order'),
+    path('orders/',views.orders,name='orders'),
+    path('order/',views.order,name='order'),
+    path('place_order/<int:pk>',views.place_order,name='place_order'),
+    path('order_report/',views.order_report,name='order_report'),
 
 ]

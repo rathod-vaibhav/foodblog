@@ -86,9 +86,17 @@ WSGI_APPLICATION = 'foodblog.wsgi.application'
 #     }
 # }
 DATABASES = {
-    'default': {
+    'user': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase',
+        'NAME': 'db.sqlite3',
+    }, 
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'foodblog', 
+        'USER': 'postgres',
+        'PASSWORD': 'agauvr@1999',
+        'HOST': 'localhost', 
+        'PORT': '5432',
     }
 }
 

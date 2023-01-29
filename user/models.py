@@ -12,3 +12,9 @@ class Client(models.Model):
 
     def __str__(self):
         return self.username
+    
+class Orders_Download(models.Model):
+    person_name = models.CharField(max_length=20,default="demo")
+    order_num= models.CharField(null=False,max_length=10)
+    updated_on= models.DateField(auto_now_add=True)
+    place_order = models.BooleanField(default=False)

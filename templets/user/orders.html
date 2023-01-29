@@ -1,0 +1,69 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<style>
+
+    .custab {
+        border: 1px solid #ccc;
+        padding: 5px;
+        margin: 5% 0;
+        box-shadow: 3px 3px 2px #ccc;
+        transition: 0.5s;
+    }
+
+    .custab:hover {
+        box-shadow: 3px 3px 0px transparent;
+        transition: 0.5s;
+    }
+</style>
+
+
+<div class="container">
+    <div class="row col-md-8 col-md-offset-2 custyle">
+        <center><h1>Orders Records</h1></center>
+        <br>
+        <center>
+        <h3>Total Orders:{{ cdata }}</h3></center>
+        <center><h3>Total Orders Placed:{{ oplaces }}</h3></center>
+            <a class='btn btn-info btn-xs' href="{% url 'order' %}"><span
+            class="glyphicon glyphicon-plus"></span> Add Order</a>
+            <table class="table table-striped custab">
+                <thead>
+
+                <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Date</th> 
+                    <th>Action</th> 
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in data %}
+                <tr>
+                    <td>{{ i.order_num }}</td>
+                    <td>{{ i.person_name }}</td>
+                    <td>{{ i.updated_on }}</td>
+                    <!-- <td>{{ i.phonenumber }}</td>
+                    <td class="text-center">
+
+                        <a class='btn btn-info btn-xs' href="{% url 'edit-data' pk=i.id %}"><span
+                            class="glyphicon glyphicon-edit"></span> Edit</a> -->
+                    <td class="text-center">
+                        {% if i.place_order == False %}
+                            <a class="btn btn-success btn-xs" href="{% url 'place_order' pk=i.id %}">
+                            <span class="glyphicon glyphicon-right"></span> place</a></td>
+                        {% else %}
+                            <a class="btn btn-info btn-xs" >
+                            <span class="glyphicon glyphicon-success"></span> order placed</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+
+    </div>
+</div>

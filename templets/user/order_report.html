@@ -1,0 +1,48 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<style>
+
+    .custab {
+        border: 1px solid #ccc;
+        padding: 5px;
+        margin: 5% 0;
+        box-shadow: 3px 3px 2px #ccc;
+        transition: 0.5s;
+    }
+
+    .custab:hover {
+        box-shadow: 3px 3px 0px transparent;
+        transition: 0.5s;
+    }
+</style>
+
+
+<div class="container">
+    <div class="row col-md-8 col-md-offset-2 custyle">
+        <center><h1>Orders Report</h1></center>
+        <br>
+            <table class="table table-striped custab">
+                <thead>
+
+                <tr>
+                    <th>date</th>
+                    <th>download count</th>
+                    <th>order place count</th> 
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in data %}
+                <tr>
+                    <td>{{ i.date }}</td>
+                    <td>{{ i.download_order }}</td>
+                    <td>{{ i.place_order }}</td>
+                </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+
+    </div>
+</div>
